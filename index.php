@@ -31,10 +31,14 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                <div <?php $msgError ?>> Invalid email! Espabile!
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Password</label>
                                 <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                                <div <?php $msgErrorPass ?>> Invalid password! Espabile!
+                                </div>
                             </div>
                             <div class="form-group">
                                 <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
@@ -67,8 +71,6 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                                <div class="text-danger"> <?php echo ($msgError); ?>
-                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Password</label>
