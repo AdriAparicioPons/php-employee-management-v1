@@ -67,6 +67,8 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                <div class="text-danger"> <?php echo ($msgError); ?>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Password</label>
