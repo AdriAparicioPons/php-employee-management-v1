@@ -1,11 +1,7 @@
 <?php
-$url = "http://localhost/documents/php-employee-management-v1-1/resources/users.json";
-
-$result = json_decode(file_get_contents($url));
-foreach($result->users as $value){
-}
+session_start();
+$name = $_SESSION['name'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +13,7 @@ foreach($result->users as $value){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>BIENVENIDO <?php echo strtoupper($value->name); ?></h1>
-
+    <h1>BIENVENIDO <?php echo strtoupper($name); ?></h1>
+    <button type="button">LOG OUT</button>
 </body>
 </html>

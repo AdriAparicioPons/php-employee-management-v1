@@ -27,7 +27,7 @@
 							<h1>Login</h1>
 						</div>
 					</div>
-                    <form action="src/library/loginController.php" method="POST" name="login">
+                    <form action="src/library/loginController.php" method="POST">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -43,7 +43,7 @@
                                 <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
                             </div>
                             <div class="col-md-12 text-center ">
-                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" name="login">Login</button>
                             </div>
                             <div class="form-group">
                                 <p class="text-center">Don't have account? <a href="#" id="signup">Sign up here</a></p>
