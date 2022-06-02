@@ -31,8 +31,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                                <div <?php $msgError ?>> Invalid email! Espabile!
-                                </div>
+                                <?php $msgError ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Password</label>

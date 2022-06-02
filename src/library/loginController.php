@@ -22,13 +22,8 @@ if (password_verify($password, $hash) && $email == $value->email) {
     echo '¡Valid credentials!';
     header("location:../../src/dashboard.php");
 } else {
-    $msgError = "class='invalid-tooltip'";
+    $msgError = "<div class='invalid-feedback'> Invalid email! Espabile!
+    </div>";
     header("location:../../index.php");
     // echo 'Invalid credentials!';
 }
-// $ch = curl_init();
-
-// $email = $_POST['email'];
-// $password = $_POST['password'];
-
-// echo "email: $email y Password: $password";
