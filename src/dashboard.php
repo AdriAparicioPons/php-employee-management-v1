@@ -14,6 +14,32 @@ $name = $_SESSION['name'];
 </head>
 <body>
     <h1>BIENVENIDO <?php echo strtoupper($name); ?></h1>
-    <button type="button">LOG OUT</button>
+    <button type="button" name="logout">LOG OUT</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Street No.</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Postal Code</th>
+                <th>Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>joselito</td>
+                <td>joselito@hotmail.com</td>
+                <td>46</td>
+                <td>calle falsa 123</td>
+                <td>sevilla</td>
+                <td>jupiter</td>
+                <td>12345</td>
+                <td>555555555</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
