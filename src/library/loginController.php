@@ -7,5 +7,4 @@ if (isset($_POST["login"])){
     login();
 }
 
-require_once "dashboard.php";
 

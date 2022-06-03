@@ -4,8 +4,7 @@ session_start();
 function login(){
     $password = $_SESSION['password'];
     $email = $_SESSION['email'];
-    
-    $url = "http://localhost/documents/php-employee-management-v1-1/resources/users.json";
+    $url = "../../resources/users.json";
     $result = json_decode(file_get_contents($url));
     // $userPass;
     foreach($result->users as $value){
@@ -20,3 +19,4 @@ function login(){
     header("location:../../index.php");
     }
 }
+
