@@ -14,7 +14,9 @@ $name = $_SESSION['name'];
 </head>
 <body>
     <h1>BIENVENIDO <?php echo strtoupper($name); ?></h1>
-    <button type="button" name="logout">LOG OUT</button>
+    <form method="post" action="./library/loginController.php">
+    <button type="submit"  name="logout">LOG OUT</button>
+</form>
     <table class="table">
         <thead>
             <tr>
