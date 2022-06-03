@@ -60,10 +60,23 @@
 //     });
 //     });
 
+const e = [];
+const tableEmployee = document.getElementById('tableEmployee');
+
 function printTable(){
-fetch("../library/employeeManager.php").then(function(response){
-return response.json();
-}).then(function (data){
-    console.log(data);
-})
+    fetch("../src/library/employeeController.php").then(function(response){
+        return response.text();
+    }).then(function (data){
+        jsonText = data;
+        const parse = new DOMParser();
+        const doc = parse.parseFromString(data, 'text/html');
+        const rows = doc.querySelectorAll("tr");
+        // console.log(rows);
+        rows.forEach(value => {
+            tableEmployee.append(value);
+            console.log(tableEmployee);
+            console.log(value);
+    });
+    // tableEmployee.append(doc);
+});
 }

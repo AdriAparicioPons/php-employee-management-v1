@@ -2,8 +2,8 @@
 
 function dataEmployees(){
     $pathEmployees = "../../resources/employees.json";
-    $dateEmployees = json_decode(file_get_contents($pathEmployees));
-    foreach($dateEmployees as $value){
+    $dataEmployees = json_decode(file_get_contents($pathEmployees));
+    foreach($dataEmployees as $value){
         $userNameEmployees = $value->name;
         $userLastNameEmployees = $value->lastName;
         $userEmailEmployees = $value->email;
@@ -14,22 +14,39 @@ function dataEmployees(){
         $userAgeEmployees = $value->age;
         $userPostalEmployees = $value->postalCode;
         $userPhoneNumberEmployees = $value->phoneNumber;
-        echo "<table>";
-        echo "<tr>";
-        echo "<td>$userNameEmployees</td>";
-        echo "<td>$userLastNameEmployees</td>";
-        echo "<td>$userEmailEmployees</td>";
-        echo "<td>$userGenderEmployees</td>";
-        echo "<td>$userCityEmployees</td>";
-        echo "<td>$userAddressEmployees</td>";
-        echo "<td>$userStateEmployees</td>";
-        echo "<td>$userAgeEmployees</td>";
-        echo "<td>$userPostalEmployees</td>";
-        echo "<td>$userPhoneNumberEmployees</td>";
-        echo "</tr>";
-        echo "</table>";
+        if(isset($userNameEmployees)){
+            echo "<table>";
+            echo "<tr>";
+            echo "<td>$userNameEmployees</td>";
+            echo "<td>$userLastNameEmployees</td>";
+            echo "<td>$userEmailEmployees</td>";
+            echo "<td>$userGenderEmployees</td>";
+            echo "<td>$userCityEmployees</td>";
+            echo "<td>$userAddressEmployees</td>";
+            echo "<td>$userStateEmployees</td>";
+            echo "<td>$userAgeEmployees</td>";
+            echo "<td>$userPostalEmployees</td>";
+            echo "<td>$userPhoneNumberEmployees</td>";
+            echo "</tr>";
+            echo "</table>";
+        }
     }
 }
+
+// echo "<table>";
+//         echo "<tr>";
+//         echo "<td>$userNameEmployees</td>";
+//         echo "<td>$userLastNameEmployees</td>";
+//         echo "<td>$userEmailEmployees</td>";
+//         echo "<td>$userGenderEmployees</td>";
+//         echo "<td>$userCityEmployees</td>";
+//         echo "<td>$userAddressEmployees</td>";
+//         echo "<td>$userStateEmployees</td>";
+//         echo "<td>$userAgeEmployees</td>";
+//         echo "<td>$userPostalEmployees</td>";
+//         echo "<td>$userPhoneNumberEmployees</td>";
+//         echo "</tr>";
+//         echo "</table>";
 
 function printEmployees(){
 
