@@ -59,32 +59,11 @@
 //         }
 //     });
 //     });
-//FUNCTION FETCH
 
-$url = "http://localhost/documents/php-employee-management-v1-1/resources/users.json";
-
-fetch($url,
-    method= 'POST',
-    body= JSON.stringify(object),
-    headers= {'Content-Type': 'application/json'} // indica el formato
-
-    .then(function (response){
-        return response.text();
-    })
-    .then(function (data){
-        console.log(data);
-    })
-    .catch(function (error){
-        console.error(error);
-    }))
-
-
-//     $json = file_get_contents('php://input');
-//     $datos = json_decode($json, false);
-
-// public function ensayando(){
-//     $datos = json_decode(file_get_contents('php://input'));
-//     print_r($datos);
-// }
-
-console.log("hello");
+function printTable(){
+fetch("../library/employeeManager.php").then(function(response){
+return response.json();
+}).then(function (data){
+    console.log(data);
+})
+}

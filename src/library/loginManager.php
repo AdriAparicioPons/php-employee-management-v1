@@ -4,7 +4,6 @@ session_start();
 function login(){
     $password = $_SESSION['password'];
     $email = $_SESSION['email'];
-    
     $url = "../../resources/users.json";
     $result = json_decode(file_get_contents($url));
     // $userPass;
