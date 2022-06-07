@@ -28,7 +28,7 @@ function addEmployee() {
    
     file_put_contents('../../resources/employees.json', $finalEmployeeArray);
  
-    
+
 }
 
 
@@ -63,9 +63,10 @@ function dataEmployees(){
             echo "<td>$userPhoneNumberEmployees</td>";
             echo "</tr>";
             echo "</table>";
-        } 
+        }
     }
 }
+
 
 
 
