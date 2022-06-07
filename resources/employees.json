@@ -13,7 +13,7 @@
         "phoneNumber": "7383627627"
     },
     {
-        "id": "2",
+        "id": 2,
         "name": "John",
         "lastName": "Doe",
         "email": "jhondoe@foo.com",
@@ -91,7 +91,7 @@
         "phoneNumber": "45372788192"
     },
     {
-        "id": "8",
+        "id": 8,
         "name": "Robert",
         "lastName": "Thomson",
         "email": "jackon@network.com",
@@ -102,5 +102,41 @@
         "state": "LU",
         "postalCode": 63281,
         "phoneNumber": "91232876454"
+    },
+    {
+        "name": "adria",
+        "lastName": "aparicio",
+        "email": "adri@adri.com",
+        "gender": "Female",
+        "city": "Barcelona",
+        "streetAddress": "dominguish street",
+        "state": "washington",
+        "age": "23",
+        "postalCode": "08003",
+        "phoneNumber": "666-83-45-31"
+    },
+    {
+        "name": "matias",
+        "lastName": "messi",
+        "email": "admin@assemblerschool.com",
+        "gender": "Male",
+        "city": "Barcelona",
+        "streetAddress": "dominguish street",
+        "state": "washington",
+        "age": "19",
+        "postalCode": "08003",
+        "phoneNumber": "666-83-45-31"
+    },
+    {
+        "name": "matias",
+        "lastName": "Goodman",
+        "email": "m.patrignani56@gmail.com",
+        "gender": "Male",
+        "city": "barcelona",
+        "streetAddress": "asdasdasd",
+        "state": "Barcelona",
+        "age": "21",
+        "postalCode": "1234",
+        "phoneNumber": "666-66-66-45"
     }
 ]
