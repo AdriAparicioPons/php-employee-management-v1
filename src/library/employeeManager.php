@@ -3,12 +3,13 @@
 
 
 function addEmployee() {
-   $currentEmployees = file_get_contents("../../resources/employees.json");
+    $currentEmployees = file_get_contents("../../resources/employees.json");
     $employeeArray = json_decode($currentEmployees, true);
-    $new_employee = 
+    $new_employee =
     [
         "id"=> hexdec(uniqid()),
        // img = > random
+        "id" => hexdec(uniqid()),
         "name" =>  $_POST['firstName'],
         "lastName" => $_POST['lastName'],
         "email" => $_POST['email'],
@@ -34,6 +35,7 @@ function dataEmployees(){
     $pathEmployees = "../../resources/employees.json";
     $dataEmployees = json_decode(file_get_contents($pathEmployees));
     foreach($dataEmployees as $value){
+        $userId = $value->id;
         $userNameEmployees = $value->name;
         $userLastNameEmployees = $value->lastName;
         $userEmailEmployees = $value->email;
@@ -46,7 +48,7 @@ function dataEmployees(){
         $userPhoneNumberEmployees = $value->phoneNumber;
         if(isset($userNameEmployees)){
             echo "<table>";
-            echo "<tr>";
+            echo "<tr data-id={$userId}>";
             echo "<td>$userNameEmployees</td>";
             echo "<td>$userLastNameEmployees</td>";
             echo "<td>$userEmailEmployees</td>";
@@ -57,7 +59,7 @@ function dataEmployees(){
             echo "<td>$userAgeEmployees</td>";
             echo "<td>$userPostalEmployees</td>";
             echo "<td>$userPhoneNumberEmployees</td>";
-            echo "<td><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-x-lg' viewBox='0 0 16 16'><path d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z'/></svg></td>";
+            echo "<td><button type='sumbit'  data-id='$userId' onclick='deleteEmploye(event)' name='delete'>Delete</button></td>";
             echo "</tr>";
             echo "</table>";
         }
@@ -65,16 +67,55 @@ function dataEmployees(){
 }
 
 
-function deleteEmployee(){
-    $id = $_POST[$idDelete];
-    $data = file_get_contents("../../resources/employees.json");
-    $jason = json_decode($data);
-    print_r($jason);
-    unset($json[$id]);
-    $json = json_encode($json, JSON_PRETTY_PRINT);
-    file_put_contents('employees.json', $json);
-    header('location: ../dashboard.php');
-}
+function deleteEmployee($id){
+    $pathEmployees = "../../resources/employees.json";
+    $dataEmployees = json_decode(file_get_contents($pathEmployees),true);
 
+    
+
+    foreach ($dataEmployees as $key => $value) {
+        if ($value['id'] === intval($id)) {
+            unset($dataEmployees[$key]);
+        }
+    }
+
+    $json = json_encode($dataEmployees);
+
+    if (file_put_contents('../../resources/employees.json', $json)) {
+        
+        foreach($dataEmployees as $value){
+            $userId = $value['id'];
+            $userNameEmployees = $value['name'];
+            $userLastNameEmployees = $value['lastName'];
+            $userEmailEmployees = $value['email'];
+            $userGenderEmployees = $value['gender'];
+            $userCityEmployees = $value['city'];
+            $userAddressEmployees = $value['streetAddress'];
+            $userStateEmployees = $value['state'];
+            $userAgeEmployees = $value['age'];
+            $userPostalEmployees = $value['postalCode'];
+            $userPhoneNumberEmployees = $value['phoneNumber'];
+            if(isset($userNameEmployees)){
+                echo "<table>";
+                echo "<tr data-id={$userId}>";
+                echo "<td>$userNameEmployees</td>";
+                echo "<td>$userLastNameEmployees</td>";
+                echo "<td>$userEmailEmployees</td>";
+                echo "<td>$userGenderEmployees</td>";
+                echo "<td>$userCityEmployees</td>";
+                echo "<td>$userAddressEmployees</td>";
+                echo "<td>$userStateEmployees</td>";
+                echo "<td>$userAgeEmployees</td>";
+                echo "<td>$userPostalEmployees</td>";
+                echo "<td>$userPhoneNumberEmployees</td>";
+                echo "<td><button type='sumbit'  data-id='$userId' onclick='deleteEmploye(event)' name='delete'>Delete</button></td>";
+                echo "</tr>";
+                echo "</table>";
+            }
+        }
+    } else {
+        echo 'no se guardo';
+    }
+}
 
 

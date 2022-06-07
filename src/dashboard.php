@@ -16,10 +16,28 @@ $name = $_SESSION['name'];
     <script src="../assets/js/index.js" defer></script>
 </head>
 <body onload="printTable()">
-    <h1>BIENVENIDO <?php echo strtoupper($name); ?></h1>
-    <form method="post" action="./library/loginController.php">
-    <button type="submit"  name="logout">LOG OUT</button>
-</form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">Dashboard</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Employee</a>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <h4>BIENVENIDO, <?php echo strtoupper($name); ?></h4>
+        <form method="post" action="./library/loginController.php">
+            <button class="btn btn-outline-primary" type="submit" name="logout">LOG OUT</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
     <table class="table">
         <thead>
             <tr>
