@@ -1,7 +1,10 @@
 <?php
 session_start();
-$name = $_SESSION['name'];
-
+if(!isset($_SESSION['name'])){
+  header("Location: ./../index.php");
+} else {
+  $name = $_SESSION['name'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +27,7 @@ $name = $_SESSION['name'];
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <a class="navbar-brand" href="../src/dashboard.php">Dashboard</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav w-100 mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href='../src/employee.php'>Employee</a>
         </li>
@@ -38,7 +41,7 @@ $name = $_SESSION['name'];
     </div>
   </div>
 </nav>
-    <div class="row d-flex justify-content-center">
+    <div class="divTable w-100 row d-flex justify-content-around">
     <table class="table table-striped mt-5 w-75 rounded">
         <thead>
             <tr>
@@ -52,6 +55,7 @@ $name = $_SESSION['name'];
                 <th>Age</th>
                 <th>Postal Code</th>
                 <th>Phone Number</th>
+                <th></th>
                 <th>
                     <form method="post" action="./library/employeeController.php" >
                     <button name="addEmployee" type="submit"  class="btn btn-success" data-toggle="modal" data-target="#infoDisplay"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">

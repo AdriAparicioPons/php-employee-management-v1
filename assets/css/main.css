@@ -4,4 +4,40 @@ body{
 
 table{
     background-color: white;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.divTable {
+    margin: auto;
+    height: 70vh;
+    width:90%;
+    overflow:auto;
+}
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+.divTable::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.divTable::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.divTable::-webkit-scrollbar-button:increment,.divTable::-webkit-scrollbar-button {
+    display: none;
+}
+
+.divTable::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+.divTable::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.divTable::-webkit-scrollbar-track {
+    border-radius: 10px;  
 }

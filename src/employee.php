@@ -1,4 +1,12 @@
 <!-- TODO Employee view -->
+<?php
+session_start();
+if(!isset($_SESSION['name'])){
+  header("Location: ./../index.php");
+} else {
+  $name = $_SESSION['name'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +26,6 @@
 </head>
 <body>
     <section >
-    
     <form class="my-4 mx-4" action="../src/library/employeeController.php" method= "post">
   <div class="form-row">
     <div class="col-md-4 mb-3">
