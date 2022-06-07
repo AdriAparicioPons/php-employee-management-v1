@@ -7,7 +7,7 @@ function addEmployee() {
     $employeeArray = json_decode($currentEmployees, true);
     $new_employee = 
     [
-       // "id"=> que sume 1  al anterior
+        "id"=> hexdec(uniqid()),
        // img = > random
         "name" =>  $_POST['firstName'],
         "lastName" => $_POST['lastName'],
@@ -20,16 +20,12 @@ function addEmployee() {
         "postalCode" => $_POST['zip'],
         "phoneNumber" =>$_POST['phone']
     ];
-    
     $employeeArray [] = $new_employee;
-    
-    
     $finalEmployeeArray = json_encode($employeeArray, JSON_PRETTY_PRINT);
-   
     file_put_contents('../../resources/employees.json', $finalEmployeeArray);
- 
-
 }
+
+
 
 
 
@@ -61,12 +57,24 @@ function dataEmployees(){
             echo "<td>$userAgeEmployees</td>";
             echo "<td>$userPostalEmployees</td>";
             echo "<td>$userPhoneNumberEmployees</td>";
+            echo "<td><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-x-lg' viewBox='0 0 16 16'><path d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z'/></svg></td>";
             echo "</tr>";
             echo "</table>";
         }
     }
 }
 
+
+function deleteEmployee(){
+    $id = $_POST[$idDelete];
+    $data = file_get_contents("../../resources/employees.json");
+    $jason = json_decode($data);
+    print_r($jason);
+    unset($json[$id]);
+    $json = json_encode($json, JSON_PRETTY_PRINT);
+    file_put_contents('employees.json', $json);
+    header('location: ../dashboard.php');
+}
 
 
 

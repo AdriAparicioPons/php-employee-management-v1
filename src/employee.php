@@ -52,13 +52,7 @@
         Looks good!
       </div>
     </div>
-<div class="col-md-4  mb-3">
-    <label for="address">Street Address</label>
-      <input type="text" class="form-control is-valid" name="address" placeholder="Dominguish street" id="address" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-    </div>
+
     <div class="col-md-4  mb-2">
     <label for="phone">Phone</label>
       <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}" class="form-control is-valid"  placeholder="666-66-74-31"  required>
@@ -66,7 +60,13 @@
         Looks good!
       </div>
     </div>
-    
+    <div class="col-md-4  mb-3">
+    <label for="address">Street Address</label>
+      <input type="text" class="form-control is-valid" name="address" placeholder="Dominguish street" id="address" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
     
     </div>
     <div class="form-row">
@@ -95,8 +95,8 @@
   <div class="form-row">
   <div class="col-md-3 mb-5">
     <select id="gender" name = "gender" class="custom-select">
-  <option selected>Choose your gender</option>
-        <option>Male </option>
+  <option >Choose your gender</option>
+      <option>Male </option>
 	    <option>Female</option>
 	    <option>Somthing else</option>
     </select>  
