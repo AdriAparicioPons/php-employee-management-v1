@@ -1,4 +1,7 @@
 const tableEmployee = document.getElementById('tableEmployee');
+const currentEmployees = " <?php echo $currentEmployees; ?>";
+
+
 
 function printTable(){
     const data = new FormData();
@@ -51,3 +54,18 @@ function deleteRows(parent){
         parent.removeChild(parent.lastChild);
     }
 }
+
+tableEmployee.addEventListener('click', displayEmployee);
+const mainPath = previousFolder(location.pathname)
+const employeeUrl = `${mainPath}/employee.php` 
+console.log(employeeUrl)
+function previousFolder(path) { 
+    return path.substring(0, path.lastIndexOf('/')) 
+}
+
+ function displayEmployee(e){
+     let employeeidentificator = e.target.parentElement.getAttribute('data-id');
+     location.assign(employeeUrl);
+     console.log(currentEmployees);
+     //fetch a una funcion php
+ }

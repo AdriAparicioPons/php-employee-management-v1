@@ -13,23 +13,6 @@ if (isset($_POST['submit'])){
 
 
 
-// $function = $_POST["function"];
-
-// switch ($function) {
-//     case 'read':
-//         echo "READ";
-//         dataEmployees();
-//         break;
-
-//     case 'delete':
-//         // $data = json_decode(file_get_contents("php://input"), true);
-//         print_r($_POST);
-//         // deleteEmployee($id);
-//         break;
-//     default:
-
-//         break;
-// }
 
 
 if($_SERVER['REQUEST_METHOD'] === "DELETE"){
