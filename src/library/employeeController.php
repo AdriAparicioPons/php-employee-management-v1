@@ -9,8 +9,9 @@ if (isset($_POST['submit'])){
     addEmployee();
     header("Location:../dashboard.php");
 }
-
-
+if(isset($_GET['id'])){
+    echo "miguelito";
+}
 
 
 
