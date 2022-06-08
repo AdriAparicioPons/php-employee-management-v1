@@ -70,6 +70,27 @@ function dataEmployees(){
     }
 }
 
+function editEmployees($id){
+    $pathEmployees = "../resources/employees.json";
+    $dataEmployees = json_decode(file_get_contents($pathEmployees));
+    foreach($dataEmployees as $key => $value){
+    if($value['id'] === $id){
+        $_SESSION['firstName'] = $value['name'];
+        $_SESSION['lastName'] = $value['lastName'];
+        $_SESSION['employeeEmail'] = $value['email'];
+        $_SESSION['gender'] = $value['gender'];
+        $_SESSION['city'] = $value['city'];
+        $_SESSION['state'] = $value['state'];
+        $_SESSION['streetAddress'] = $value['streetAddress'];
+        $_SESSION['age'] = $value['age'];
+        $_SESSION['postalCode'] = $value['statpostalCodee'];
+        $_SESSION['phoneNumber'] = $value['phoneNumber'];
+}else{
+    return "no se encuentra";
+}
+}
+}
+
 
 function deleteEmployee($id){
     $pathEmployees = "../../resources/employees.json";
