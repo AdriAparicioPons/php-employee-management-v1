@@ -2,7 +2,9 @@
 
 require_once "employeeManager.php";
 if (isset($_POST["addEmployee"])){
- 
+    
+
+
     header("Location:../employee.php");
 }
 else if (isset($_POST['submit'])){
@@ -10,12 +12,12 @@ else if (isset($_POST['submit'])){
     header("Location:../dashboard.php");
 }
 if (isset($_GET['submit'])){
+    deleteEmployeeForEdit($id);
     edit($id);
     header("Location:../dashboard.php");
 }
-function edit($id){
-    editEmployees($id);
-}
+
+
 
 
 
