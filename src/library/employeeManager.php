@@ -1,6 +1,6 @@
 <?php
 
-//Create new employee in DBjSON
+//!Create new employee in dbJSON
 
 function addEmployee() {
     $currentEmployees = file_get_contents("../../resources/employees.json");
@@ -27,7 +27,7 @@ function addEmployee() {
 
 
 
-
+//!get data from dbJSON AND PRINT IN TABLE
 
 function dataEmployees(){
     $pathEmployees = "../../resources/employees.json";
@@ -58,17 +58,14 @@ function dataEmployees(){
             echo "<td>$userPostalEmployees</td>";
             echo "<td>$userPhoneNumberEmployees</td>";
             echo "<td><button class='btn btn-danger' type='sumbit'  data-id='$userId' onclick='deleteEmploye(event)' name='delete'>Despedido</button></td>";
-            // echo "<td><button class='btn btn-danger' type='sumbit' data-id='$userId' onclick='deleteEmploye(event)' name='delete'>
-            // <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
-            // <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
-            // </svg>
-            // </button></td>";
             echo "<td><button type='button' data-edit='$userId' class='btn btn-warning'>Edit</button></td>";
             echo "</tr>";
             echo "</table>";
         }
     }
 }
+
+//! Edit selected employee
 
 function edit($id){
     $pathEmployees = "../resources/employees.json";
@@ -89,7 +86,7 @@ function edit($id){
 }
 }}
 
-
+//! Delete Eployee when button is clicked
 
 function deleteEmployee($id){
     $pathEmployees = "../../resources/employees.json";
@@ -130,82 +127,62 @@ function deleteEmployee($id){
                 echo "<td>$userPostalEmployees</td>";
                 echo "<td>$userPhoneNumberEmployees</td>";
                 echo "<td><button class='btn btn-danger' type='sumbit'  data-id='$userId' onclick='deleteEmploye(event)' name='delete'>Despedido</button></td>";
-                // echo "<td><button class='btn btn-danger' type='sumbit' data-id='$userId' onclick='deleteEmploye(event)' name='delete'>
-                // <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
-                // <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
-                // </svg>
-                // </button></td>";
                 echo "<td><button type='button' data-edit='$userId' class='btn btn-warning'>Edit</button></td>";
-
-                echo "</tr>";
-                echo "</table>";
-            }
-        }
-    } 
-}
-
-function deleteEmployeeForEdit($id){
-    $pathEmployees = "../../resources/employees.json";
-    $dataEmployees = json_decode(file_get_contents($pathEmployees),true);
-
-    foreach ($dataEmployees as $key => $value) {
-        if ($value['id'] === intval($id)) {
-            unset($dataEmployees[$key]);
-        }
-    }
-
-    $json = json_encode($dataEmployees);
-
-    if (file_put_contents('../../resources/employees.json', $json)) {
-        foreach($dataEmployees as $value){
-            $userId = $value['id'];
-            $userNameEmployees = $value['name'];
-            $userLastNameEmployees = $value['lastName'];
-            $userEmailEmployees = $value['email'];
-            $userGenderEmployees = $value['gender'];
-            $userCityEmployees = $value['city'];
-            $userAddressEmployees = $value['streetAddress'];
-            $userStateEmployees = $value['state'];
-            $userAgeEmployees = $value['age'];
-            $userPostalEmployees = $value['postalCode'];
-            $userPhoneNumberEmployees = $value['phoneNumber'];
-        //     $userId = $value->id;
-        // $userNameEmployees = $value->name;
-        // $userLastNameEmployees = $value->lastName;
-        // $userEmailEmployees = $value->email;
-        // $userGenderEmployees = $value->gender;
-        // $userCityEmployees = $value->city;
-        // $userAddressEmployees = $value->streetAddress;
-        // $userStateEmployees = $value->state;
-        // $userAgeEmployees = $value->age;
-        // $userPostalEmployees = $value->postalCode;
-        // $userPhoneNumberEmployees = $value->phoneNumber;
-            if(isset($userNameEmployees)){
-                echo "<table>";
-                echo "<tr data-id={$userId}>";
-                echo "<td>$userNameEmployees</td>";
-                echo "<td>$userLastNameEmployees</td>";
-                echo "<td>$userEmailEmployees</td>";
-                echo "<td>$userGenderEmployees</td>";
-                echo "<td>$userCityEmployees</td>";
-                echo "<td>$userAddressEmployees</td>";
-                echo "<td>$userStateEmployees</td>";
-                echo "<td>$userAgeEmployees</td>";
-                echo "<td>$userPostalEmployees</td>";
-                echo "<td>$userPhoneNumberEmployees</td>";
-                echo "<td><button class='btn btn-danger' type='sumbit'  data-id='$userId' onclick='deleteEmploye(event)' name='delete'>Despedido</button></td>";
-                // echo "<td><button class='btn btn-danger' type='sumbit' data-id='$userId' onclick='deleteEmploye(event)' name='delete'>
-                // <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
-                // <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
-                // </svg>
-                // </button></td>";
-                echo "<td><button type='button' data-edit='$userId' class='btn btn-warning'>Edit</button></td>";
-
                 echo "</tr>";
                 echo "</table>";
             }
         }
     }
 }
+
+//!Delete previus data and display changes editing enmployee (failed tu success :(  )
+
+// function deleteEmployeeForEdit($id){
+//     $pathEmployees = "../../resources/employees.json";
+//     $dataEmployees = json_decode(file_get_contents($pathEmployees),true);
+
+//     foreach ($dataEmployees as $key => $value) {
+//         if ($value['id'] === intval($id)) {
+//             unset($dataEmployees[$key]);
+//         }
+//     }
+
+//     $json = json_encode($dataEmployees);
+
+//     if (file_put_contents('../../resources/employees.json', $json)) {
+//         foreach($dataEmployees as $value){
+//             $userId = $value['id'];
+//             $userNameEmployees = $value['name'];
+//             $userLastNameEmployees = $value['lastName'];
+//             $userEmailEmployees = $value['email'];
+//             $userGenderEmployees = $value['gender'];
+//             $userCityEmployees = $value['city'];
+//             $userAddressEmployees = $value['streetAddress'];
+//             $userStateEmployees = $value['state'];
+//             $userAgeEmployees = $value['age'];
+//             $userPostalEmployees = $value['postalCode'];
+//             $userPhoneNumberEmployees = $value['phoneNumber'];
+//             if(isset($userNameEmployees)){
+//                 echo "<table>";
+//                 echo "<tr data-id={$userId}>";
+//                 echo "<td>$userNameEmployees</td>";
+//                 echo "<td>$userLastNameEmployees</td>";
+//                 echo "<td>$userEmailEmployees</td>";
+//                 echo "<td>$userGenderEmployees</td>";
+//                 echo "<td>$userCityEmployees</td>";
+//                 echo "<td>$userAddressEmployees</td>";
+//                 echo "<td>$userStateEmployees</td>";
+//                 echo "<td>$userAgeEmployees</td>";
+//                 echo "<td>$userPostalEmployees</td>";
+//                 echo "<td>$userPhoneNumberEmployees</td>";
+//                 echo "<td><button class='btn btn-danger' type='sumbit'  data-id='$userId' onclick='deleteEmploye(event)' name='delete'>Despedido</button></td>";
+//                 echo "<td><button type='button' data-edit='$userId' class='btn btn-warning'>Edit</button></td>";
+
+//                 echo "</tr>";
+//                 echo "</table>";
+//             }
+//         }
+//     }
+// }
 
 
