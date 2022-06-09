@@ -1,6 +1,6 @@
 <?php
 
-
+//Create new employee in DBjSON
 
 function addEmployee() {
     $currentEmployees = file_get_contents("../../resources/employees.json");
