@@ -20,7 +20,7 @@ function printTable(){
 });
 }
 
-//! Ya ni me acuerdo boludo algo de borrar, preguntar San Alejandro
+//! Delete Employee function
 
 function deleteEmploye(e){
     const id = e.target.dataset.id;
