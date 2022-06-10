@@ -1,7 +1,10 @@
 <?php
 session_start();
-$name = $_SESSION['name'];
-
+if(!isset($_SESSION['name'])){
+  header("Location: ./../index.php");
+} else {
+  $name = $_SESSION['name'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -14,6 +17,7 @@ $name = $_SESSION['name'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="../assets/js/index.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/main.css" type="text/css">
 </head>
 <body onload="printTable()">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,22 +26,22 @@ $name = $_SESSION['name'];
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Dashboard</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <a class="navbar-brand" href="../src/dashboard.php">Dashboard</a>
+      <ul class="navbar-nav w-100 mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Employee</a>
+          <a class="nav-link active" aria-current="page" href='../src/employee.php'>Employee</a>
         </li>
       </ul>
-      <div class="d-flex">
+      <div class="d-flex justify-content-around">
         <h4>BIENVENIDO, <?php echo strtoupper($name); ?></h4>
         <form method="post" action="./library/loginController.php">
-            <button class="btn btn-outline-primary" type="submit" name="logout">LOG OUT</button>
+            <button class="btn btn-primary" type="submit" name="logout">LOG OUT</button>
         </form>
       </div>
     </div>
   </div>
 </nav>
-    <div class="divTable w-100 row d-flex justify-content-around stiky" id="header">
+    <div class="divTable w-100 row d-flex justify-content-around">
     <table class="table table-striped mt-5 w-75 rounded">
         <thead>
             <tr>
@@ -51,6 +55,7 @@ $name = $_SESSION['name'];
                 <th>Age</th>
                 <th>Postal Code</th>
                 <th>Phone Number</th>
+                <th></th>
                 <th>
                     
                     <a href='./employee.php?action=add'><button name="addEmployee" type="submit"  class="btn btn-success" data-toggle="modal" data-target="#infoDisplay"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
@@ -60,11 +65,11 @@ $name = $_SESSION['name'];
                     </button></a></th>
                 </tr>
         </thead>
-        <tbody id="tableEmployee" data-toggle="modal" data-target="#infoDisplay">
+        <tbody id="tableEmployee">
         </tbody>
         <tbody>
         </tbody>
     </table>
-    
+</div>
 </body>
 </html>

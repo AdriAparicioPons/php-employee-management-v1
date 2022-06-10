@@ -1,4 +1,7 @@
 const tableEmployee = document.getElementById('tableEmployee');
+const currentEmployees = " <?php echo $currentEmployees; ?>";
+
+
 
 //! Show table
 function printTable(){
