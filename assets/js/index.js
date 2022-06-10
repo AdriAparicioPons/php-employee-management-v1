@@ -1,5 +1,6 @@
 const tableEmployee = document.getElementById('tableEmployee');
 
+//! Show table
 function printTable(){
     const data = new FormData();
     data.set("function" ,  "read");
@@ -19,6 +20,7 @@ function printTable(){
 });
 }
 
+//! Ya ni me acuerdo boludo algo de borrar, preguntar San Alejandro
 
 function deleteEmploye(e){
     const id = e.target.dataset.id;
@@ -51,3 +53,21 @@ function deleteRows(parent){
         parent.removeChild(parent.lastChild);
     }
 }
+
+//! set id to different paths
+
+tableEmployee.addEventListener('click', displayEmployee);
+const mainPath = previousFolder(location.pathname)
+const employeeUrl = `${mainPath}/employee.php`;
+console.log(employeeUrl);
+function previousFolder(path) {
+    return path.substring(0, path.lastIndexOf('/'))
+}
+
+function displayEmployee(e){
+    if(e.target.hasAttribute('data-edit')){
+        id= e.target.getAttribute('data-edit');
+        location.assign(`${employeeUrl}?id=${id}`);
+    }
+}
+
